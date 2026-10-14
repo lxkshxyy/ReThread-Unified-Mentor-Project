@@ -1,0 +1,10 @@
+node_modules
+client/node_modules
+client/dist
+docs/screenshots
+docs/*.pdf
+server/tests
+scripts
+.env
+.env*
+.vercel

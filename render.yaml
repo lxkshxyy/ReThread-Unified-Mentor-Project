@@ -1,0 +1,20 @@
+# One-click deploy on Render (Blueprint). Runs the API + built React app as one service,
+# with Socket.io real-time chat enabled.
+services:
+  - type: web
+    name: rethread
+    runtime: node
+    plan: free
+    region: singapore
+    buildCommand: npm install && npm run build
+    startCommand: npm start
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: MONGODB_URI
+        sync: false
+      - key: JWT_SECRET
+        generateValue: true
+      - key: MONGOMS_DISABLE_POSTINSTALL
+        value: "1"
